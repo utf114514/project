@@ -8,7 +8,7 @@ from django.conf import settings
 
 class Mymw(MiddlewareMixin):
     def process_request(self, request):
-        # print('process_request is ok')
+        print('process_request is ok')
         return None
 
     def process_view(self, request, callback, callback_args, callback_kwargs):
