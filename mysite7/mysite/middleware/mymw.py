@@ -12,7 +12,7 @@ class Mymw(MiddlewareMixin):
         return None
 
     def process_view(self, request, callback, callback_args, callback_kwargs):
-        # print('process_view is ok')
+        print('process_view is ok')
         return None
 
     def process_response(self, request, response):
