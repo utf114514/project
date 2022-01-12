@@ -21,6 +21,7 @@ def test_csrf(request):
         return HttpResponse('post is ok :)')
 
 
+
 def test_page(request):
     page_num = int(request.GET.get('page', 1))
     if page_num <= 0:
