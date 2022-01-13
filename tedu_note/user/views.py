@@ -42,10 +42,10 @@ def login_view(request):
         try:
             User.objects.get(username=c_username)
         except Exception as c:
-            if c_username and c_uid:
+            if c_username or c_uid:
                 print('有用户尝试写入非法session')
                 return HttpResponse('你的COOKIES不合法,请尝试重新登陆')
-            elif not c_username and c_uid:
+            elif not c_username and not c_uid:
                 return HttpResponseRedirect('/user/login')
         if c_username and c_uid:
             request.session['username'] = c_username
