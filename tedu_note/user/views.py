@@ -44,7 +44,7 @@ def login_view(request):
         except Exception as c:
             if c_username or c_uid:
                 print('有用户尝试写入非法session')
-                return HttpResponse('你的COOKIES不合法,请尝试重新登陆')
+                return HttpResponseRedirect('/user/error')
             elif not c_username and not c_uid:
                 return HttpResponseRedirect('/user/login')
         if c_username and c_uid:
@@ -86,3 +86,5 @@ def logout_view(request):
     if 'uid' in request.COOKIES:
         resp.delete_cookie('uid')
     return resp
+def error(request):
+    return render(request,'error.html')
